@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import { useAmp } from 'next/amp';
 
-export const config = { amp: 'hybrid' };
+export const config = { amp: true };
 
 import { getPrismicClient } from '../services/primicService';
 
@@ -28,21 +28,14 @@ const Home = ({ banner }: HomeProps) => {
       <h1> {banner.title} </h1>
       <p> {banner.description} </p>
       
-      {useAmp() ? (
-        <amp-img alt="A cute kitten"
+      {useAmp() && (
+        <amp-img 
           src={banner.image.url}
-          width="1000"
-          height="1000"
-          layout="responsive">
+          alt={banner.image.alt}
+          width="500"
+          height="500">
         </amp-img>
-      ) : (
-        <img alt="A cute kitten"
-          src={banner.image.url}
-          width="1000"
-          height="1000">
-        </img>
-        )
-      };
+      )}
       <button type="button"> {banner.buttonText} </button>
     </div>
   )
