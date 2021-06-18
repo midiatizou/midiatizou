@@ -1,11 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/jsx-no-comment-textnodes */
-export const config = { amp: true };
-
 import { GetStaticProps } from 'next';
 import Prismic from '@prismicio/client';
 import Image from 'next/image';
-import { RichText } from 'prismic-dom';
+import Head from 'next/head';
+import { useAmp } from 'next/amp';
+
+export const config = { amp: 'hybrid' };
 
 import { getPrismicClient } from '../services/primicService';
 
@@ -22,9 +21,28 @@ const Home = ({ banner }: HomeProps) => {
 
   return (
     <div>
+      <Head>
+
+      </Head>
+
       <h1> {banner.title} </h1>
       <p> {banner.description} </p>
-      <img src={banner.image.url} alt={banner.image.alt} width="500" height="500" />
+      
+      {useAmp() ? (
+        <amp-img alt="A cute kitten"
+          src={banner.image.url}
+          width="1000"
+          height="1000"
+          layout="responsive">
+        </amp-img>
+      ) : (
+        <img alt="A cute kitten"
+          src={banner.image.url}
+          width="1000"
+          height="1000">
+        </img>
+        )
+      };
       <button type="button"> {banner.buttonText} </button>
     </div>
   )
