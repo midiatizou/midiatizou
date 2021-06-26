@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: development
-      url: 'localhost:3000'
     needs: build
     steps:
       - name: Run a one-line script
@@ -30,13 +29,4 @@ jobs:
       - name: Run a one-line script
         run: echo Deploy homolog
         
-  deploy-prd:
-    runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: 'https://midiatizou.com.br'
-    needs: deploy-homolog
-    steps:
-      - name: Run a one-line script
-        run: echo Deploy production
 
