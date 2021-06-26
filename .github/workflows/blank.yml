@@ -14,18 +14,28 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: development
-      url: 'https://midiatizou.vercel.app/'
+      url: 'http://localhost:3000'
     needs: build
     steps:
       - name: Run a one-line script
         run: echo Deploy development
+        
+  deploy-homolog:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: 'https://midiatizou.vercel.app/'
+    needs: deploy-dev
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy production
         
   deploy-prd:
     runs-on: ubuntu-latest
     environment:
       name: production
       url: 'https://midiatizou.com.br'
-    needs: deploy-dev
+    needs: deploy-homolog
     steps:
       - name: Run a one-line script
         run: echo Deploy production
