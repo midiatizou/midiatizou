@@ -25,7 +25,7 @@ jobs:
     environment:
       name: development
       url: 'https://midiatizou.vercel.app/'
-    needs: build
+    needs: deploy-dev
     steps:
       - name: Run a one-line script
         run: echo Deploy homolog
@@ -35,7 +35,7 @@ jobs:
     environment:
       name: production
       url: 'https://midiatizou.com.br'
-    needs: deploy-dev
+    needs: deploy-homolog
     steps:
       - name: Run a one-line script
         run: echo Deploy production
