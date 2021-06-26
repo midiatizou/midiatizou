@@ -28,7 +28,7 @@ jobs:
     needs: deploy-dev
     steps:
       - name: Run a one-line script
-        run: echo Deploy production
+        run: echo Deploy homolog
         
   deploy-prd:
     runs-on: ubuntu-latest
