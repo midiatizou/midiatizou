@@ -23,7 +23,7 @@ jobs:
   deploy-homolog:
     runs-on: ubuntu-latest
     environment:
-      name: production
+      name: homolog
       url: 'https://midiatizou.vercel.app/'
     needs: deploy-dev
     steps:
