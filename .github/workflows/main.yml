@@ -1,0 +1,41 @@
+name: CI Midiatizou Site
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+        
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment:
+      name: development
+      url: 'http:localhost:3000'
+    needs: build
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy development
+        
+  deploy-homolog:
+    runs-on: ubuntu-latest
+    environment:
+      name: development
+      url: 'https://midiatizou.vercel.app/'
+    needs: build
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy homolog
+        
+  deploy-prd:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: 'https://midiatizou.com.br'
+    needs: deploy-dev
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy production
