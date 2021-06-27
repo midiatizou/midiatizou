@@ -6,14 +6,17 @@ import { useAmp } from 'next/amp';
 
 export const config = { amp: true };
 
+import { Title } from '../components/Title';
+
 import { getPrismicClient } from '../services/primicService';
 
 type HomeProps = {
   banner: {
     title: string;
-    description: string;
-    image: any;
-    buttonText: string;
+    subtitle: any;
+    banner: any;
+    bannerMobile: any;
+    textButton: string;
   }
 }
 
@@ -25,18 +28,10 @@ const Home = ({ banner }: HomeProps) => {
 
       </Head>
 
-      <h1> {banner.title} </h1>
-      <p> {banner.description} </p>
-      
-      {useAmp() && (
-        <amp-img 
-          src={banner.image.url}
-          alt={banner.image.alt}
-          width="500"
-          height="500">
-        </amp-img>
-      )}
-      <button type="button"> {banner.buttonText} </button>
+      <Title title={banner.title} />
+      <p> {banner.subtitle} </p>
+
+      <button className="lalal" type="button"> {banner.textButton} </button>
     </div>
   )
 };
@@ -47,19 +42,25 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     Prismic.predicates.at('document.type', 'banner')
   ]);
   
-  const data = {...results[0].data}; 
-
+  const data = {...results[0].data};
+  
   const banner = {
     title: data.title[0].text,
-    description: data.description[0].text,
-    image: {
-      url: data.image.url,
-      alt: data.image.alt
+    subtitle: data.subtitle[0].text,
+    banner: {
+      dimensions: data.banner.dimensions,
+      alt: data.banner.alt,
+      ult: data.banner.url,
     },
-    buttonText: data.buttontext[0].text,
+    bannerMobile: {
+      dimensions: data.banner_mobile.dimensions,
+      alt: data.banner_mobile.alt,
+      ult: data.banner_mobile.url,
+    },
+    textButton: data.text_button[0].text
   }
 
-  return { 
+  return {
     props: {
       banner,
     }

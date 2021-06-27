@@ -14,3 +14,21 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.purple {
+  color: var(--primary)!important;
+}
+
+:root {
+  --white: #fff;
+  --dark: #000;
+
+  --primary: #7B51D9;
+  --font: #D5D5D5;
+
+  --gray-900: #2B2B2E;
+  --gray-800: #343438;
+  --gray-750: #383838;
+
+  --border-radius: 12px;
+}

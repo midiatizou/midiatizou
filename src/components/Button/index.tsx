@@ -1,11 +1,16 @@
 import './style.module.css';
 
-import { IButton } from './types';
+import { ButtonProps } from './types';
 
-export const Button = ({ children }: IButton) => {
+export const Button = ({ 
+  type = 'button',
+  size = 'sm', 
+  children, 
+  ...rest }: ButtonProps
+) => {
 
   return (
-    <button className="container">
+    <button className={size} type={type} {...rest} >
       {children}
     </button>
   )

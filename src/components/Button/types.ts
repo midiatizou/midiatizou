@@ -1,5 +1,7 @@
-import React from 'react';
+import { ReactNode } from "react";
 
-export type IButton = {
-  children: React.ReactNode;
+export interface ButtonProps {
+  type?:  'button' | 'submit' | 'reset';
+  size: 'sm' | 'md' | 'lg';
+  children: ReactNode;
 };

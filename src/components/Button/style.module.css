@@ -1,3 +1,18 @@
 .container {
   border-radius: 8px;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.sm {
+  padding: 16px;
+}
+
+.md {
+  padding: 16px 24px;
+}
+
+.lg {
+  padding: 24px;
+
 }
