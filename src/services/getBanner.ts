@@ -7,9 +7,9 @@ export async function getBanner() {
   const { results } = await prismic.query([
     Prismic.predicates.at('document.type', 'banner')
   ]);
-  
+
   const data = {...results[0].data};
-  
+
   const banner = {
     title: data.title[0].text,
     subtitle: data.subtitle[0].text,
@@ -27,4 +27,4 @@ export async function getBanner() {
   };
 
   return banner;
-} 
+}

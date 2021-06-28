@@ -6,8 +6,6 @@ import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
 import { Title } from '../../components/Title';
 
-import { styles }  from './style';
-
 import { SectionHomeProps } from './type';
 
 export const SectionHome = ({ banner, logos }: SectionHomeProps) => {

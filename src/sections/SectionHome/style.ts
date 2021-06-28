@@ -1,6 +1,6 @@
 import { theme } from '../../styles/theme';
 
-export const styles = { 
+export const styles = {
   container: {
     height: '100vh',
     margin: 0,

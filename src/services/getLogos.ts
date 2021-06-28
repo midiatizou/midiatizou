@@ -20,8 +20,8 @@ export async function getLogos() {
       dimensions: data[1].dimensions,
       alt: data[1].alt,
       ult: data[1].url,
-    }, 
-  }; 
+    },
+  };
 
   return logos;
-} 
+}
