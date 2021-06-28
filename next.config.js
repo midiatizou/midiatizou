@@ -1,6 +1,5 @@
 module.exports = {
-  reactStrictMode: true,
   images: {
-    domains: ['https://images.prismic.io/slicemachine-blank'],
+    domains: ['https://images.prismic.io/'],
   },
 }

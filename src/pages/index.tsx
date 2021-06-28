@@ -1,68 +1,29 @@
 import { GetStaticProps } from 'next';
-import Prismic from '@prismicio/client';
-import Image from 'next/image';
-import Head from 'next/head';
-import { useAmp } from 'next/amp';
 
-export const config = { amp: true };
+export const config = { amp: true }
 
-import { Title } from '../components/Title';
+import { SectionHome } from '../sections/SectionHome';
 
-import { getPrismicClient } from '../services/primicService';
+import { getBanner } from '../services/getBanner';
+import { getLogos } from '../services/getLogos';
 
-type HomeProps = {
-  banner: {
-    title: string;
-    subtitle: any;
-    banner: any;
-    bannerMobile: any;
-    textButton: string;
-  }
-}
+import { SectionHomeProps } from  '../sections/SectionHome/type';
 
-const Home = ({ banner }: HomeProps) => {
+const Home = ({ banner, logos }: SectionHomeProps) => {
 
   return (
-    <div>
-      <Head>
-
-      </Head>
-
-      <Title title={banner.title} />
-      <p> {banner.subtitle} </p>
-
-      <button className="lalal" type="button"> {banner.textButton} </button>
-    </div>
+    <SectionHome  banner={banner} logos={logos} />
   )
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const prismic = getPrismicClient();
-  const { results } = await prismic.query([
-    Prismic.predicates.at('document.type', 'banner')
-  ]);
-  
-  const data = {...results[0].data};
-  
-  const banner = {
-    title: data.title[0].text,
-    subtitle: data.subtitle[0].text,
-    banner: {
-      dimensions: data.banner.dimensions,
-      alt: data.banner.alt,
-      ult: data.banner.url,
-    },
-    bannerMobile: {
-      dimensions: data.banner_mobile.dimensions,
-      alt: data.banner_mobile.alt,
-      ult: data.banner_mobile.url,
-    },
-    textButton: data.text_button[0].text
-  }
+  const banner = await getBanner();
+  const logos = await getLogos();
 
   return {
     props: {
       banner,
+      logos
     }
   }
 }

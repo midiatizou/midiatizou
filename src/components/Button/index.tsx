@@ -1,17 +1,18 @@
-import './style.module.css';
 
 import { ButtonProps } from './types';
 
-export const Button = ({ 
+import { Container } from './style';
+
+export const Button = ({
   type = 'button',
-  size = 'sm', 
-  children, 
+  size = 'sm',
+  children,
   ...rest }: ButtonProps
 ) => {
 
   return (
-    <button className={size} type={type} {...rest} >
+    <Container type={type} {...rest} >
       {children}
-    </button>
+    </Container>
   )
 }

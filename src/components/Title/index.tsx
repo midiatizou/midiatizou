@@ -1,4 +1,3 @@
-import './style.module.css';
 
 type TitleProps = {
   title: string;
@@ -6,6 +5,6 @@ type TitleProps = {
 
 export const Title = ({ title }: TitleProps) => {
   return (
-    <h1 dangerouslySetInnerHTML={{__html: title}} />
+    <h1 style={{ fontSize: '48px' }} dangerouslySetInnerHTML={{__html: title}} />
   );
 }
