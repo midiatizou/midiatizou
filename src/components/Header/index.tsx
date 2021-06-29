@@ -1,13 +1,17 @@
-import { Logo } from '../Logo';
+import { Image } from '../Image';
 
-import { styles } from './style';
+import { Container } from './style';
 
 import { HeaderProps } from './type';
 
 export const Header = ({ logoHeader }: HeaderProps) => {
   return (
-    <header style={styles.container}>
-      <Logo {...logoHeader} />
-    </header>
-  )
-}
+    <Container>
+      <Image
+        url={logoHeader.url}
+        alt={logoHeader.alt}
+        dimensions={{ width: 155, height: 38 }}
+      />
+    </Container>
+  );
+};

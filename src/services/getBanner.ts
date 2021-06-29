@@ -1,5 +1,5 @@
 import Prismic from '@prismicio/client';
-import { getPrismicClient } from "./primicService";
+import { getPrismicClient } from './primicService';
 
 export async function getBanner() {
   const prismic = getPrismicClient();
@@ -8,7 +8,7 @@ export async function getBanner() {
     Prismic.predicates.at('document.type', 'banner')
   ]);
 
-  const data = {...results[0].data};
+  const data = { ...results[0].data };
 
   const banner = {
     title: data.title[0].text,
@@ -16,12 +16,12 @@ export async function getBanner() {
     banner: {
       dimensions: data.banner.dimensions,
       alt: data.banner.alt,
-      ult: data.banner.url,
+      url: data.banner.url
     },
     bannerMobile: {
       dimensions: data.banner_mobile.dimensions,
       alt: data.banner_mobile.alt,
-      ult: data.banner_mobile.url,
+      url: data.banner_mobile.url
     },
     textButton: data.text_button[0].text
   };

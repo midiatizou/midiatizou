@@ -1,5 +1,5 @@
 import Prismic from '@prismicio/client';
-import { getPrismicClient } from "./primicService";
+import { getPrismicClient } from './primicService';
 
 export async function getLogos() {
   const prismic = getPrismicClient();
@@ -14,13 +14,13 @@ export async function getLogos() {
     logoHeader: {
       dimensions: data[0].dimensions,
       alt: data[0].alt,
-      url: data[0].url,
+      url: data[0].url
     },
     logoFooter: {
       dimensions: data[1].dimensions,
       alt: data[1].alt,
-      ult: data[1].url,
-    },
+      url: data[1].url
+    }
   };
 
   return logos;

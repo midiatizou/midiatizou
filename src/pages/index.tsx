@@ -1,22 +1,19 @@
 import { GetStaticProps } from 'next';
 
-export const config = { amp: true }
+export const config = { amp: true };
 
 import { SectionHome } from '../sections/SectionHome';
 
 import { getBanner } from '../services/getBanner';
 import { getLogos } from '../services/getLogos';
 
-import { SectionHomeProps } from  '../sections/SectionHome/type';
+import { SectionHomeProps } from '../sections/SectionHome/type';
 
 const Home = ({ banner, logos }: SectionHomeProps) => {
-
-  return (
-    <SectionHome  banner={banner} logos={logos} />
-  )
+  return <SectionHome banner={banner} logos={logos} />;
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async ctx => {
   const banner = await getBanner();
   const logos = await getLogos();
 
@@ -25,7 +22,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       banner,
       logos
     }
-  }
-}
+  };
+};
 
 export default Home;

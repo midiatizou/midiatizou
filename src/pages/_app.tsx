@@ -1,13 +1,13 @@
-import { AppProps } from 'next/app'
-import Head from 'next/head'
+import { AppProps } from 'next/app';
+import Head from 'next/head';
 
-import GlobalStyle from 'styles/global'
+import GlobalStyle from 'styles/global';
 
 function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>React Avançado</title>
+        <title>Midiatizou</title>
         <link
           rel="shortcut icon"
           type="image/svg+xml"
@@ -21,14 +21,14 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
-          content="A simple project starter to work with Typescript, React, NextJS and Styled Components"
+          content="Midiatizou - agencia de marketing com foco em google ads"
         />
         <meta name="theme-color" content="#06092B" />
       </Head>
       <GlobalStyle />
       <Component {...pageProps} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

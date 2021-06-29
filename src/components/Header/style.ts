@@ -1,7 +1,6 @@
-import { theme } from '../../styles/theme';
+import styled from 'styled-components';
 
-export const styles = { 
-  container: {
-    margin: 0,
-  }
-}
+export const Container = styled.header`
+  padding: 1rem 0;
+  margin-bottom: 2.4rem;
+`;
