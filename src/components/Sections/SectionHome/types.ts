@@ -1,4 +1,8 @@
 export type SectionHomeProps = {
+  seo: {
+    title: string;
+    description: string;
+  };
   banner: {
     title: string;
     subtitle: any;
@@ -18,4 +22,9 @@ export type SectionHomeProps = {
       url: string;
     };
   };
+};
+
+export type DivisionBannerProps = {
+  horizontalCenter?: boolean;
+  verticalCenter?: boolean;
 };

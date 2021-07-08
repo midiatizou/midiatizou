@@ -8,4 +8,3 @@ module.exports = {
     "@storybook/addon-essentials",
   ]
 }
-

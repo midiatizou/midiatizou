@@ -1,16 +1,25 @@
-import { ButtonProps } from './types';
+import React from 'react';
 
-import { Container } from './style';
+import { WrapperButton } from './styles';
+
+import { ButtonProps } from './interface';
 
 export const Button = ({
-  type = 'button',
-  size = 'sm',
+  size = 'medium',
+  fullWidth = false,
+  icon,
   children,
-  ...rest
+  ...props
 }: ButtonProps) => {
   return (
-    <Container type={type} {...rest}>
-      {children}
-    </Container>
+    <WrapperButton
+      size={size}
+      fullWidth={fullWidth}
+      hasIcon={!!icon}
+      {...props}
+    >
+      {icon}
+      {children && <span>{children}</span>}
+    </WrapperButton>
   );
 };

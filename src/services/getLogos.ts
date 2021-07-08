@@ -8,7 +8,7 @@ export async function getLogos() {
     Prismic.predicates.at('document.type', 'logo-')
   ]);
 
-  const data: any = results.map(logo => logo.data.logo);
+  const data = results.map(logo => logo.data.logo);
 
   const logos = {
     logoHeader: {

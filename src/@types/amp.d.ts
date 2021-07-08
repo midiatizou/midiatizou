@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Any element you create will be accepted
 declare namespace JSX {
   interface IntrinsicElements {

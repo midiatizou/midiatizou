@@ -2,25 +2,28 @@ import { GetStaticProps } from 'next';
 
 export const config = { amp: true };
 
-import { SectionHome } from '../sections/SectionHome';
+import { SectionHome } from '../components';
 
-import { getBanner } from '../services/getBanner';
-import { getLogos } from '../services/getLogos';
+import { getBanner, getLogos, getSeo } from '../services';
 
-import { SectionHomeProps } from '../sections/SectionHome/type';
+import { SectionHomeProps } from '../components/Sections/SectionHome/types';
 
-const Home = ({ banner, logos }: SectionHomeProps) => {
-  return <SectionHome banner={banner} logos={logos} />;
+const Home = ({ banner, logos, seo }: SectionHomeProps) => {
+  return <SectionHome banner={banner} logos={logos} seo={seo} />;
 };
 
-export const getStaticProps: GetStaticProps = async ctx => {
-  const banner = await getBanner();
-  const logos = await getLogos();
+export const getStaticProps: GetStaticProps = async () => {
+  const [banner, logos, seo] = await Promise.all([
+    getBanner(),
+    getLogos(),
+    getSeo()
+  ]);
 
   return {
     props: {
       banner,
-      logos
+      logos,
+      seo
     }
   };
 };
